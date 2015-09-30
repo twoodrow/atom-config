@@ -10,12 +10,11 @@
 #   editor.onDidSave ->
 #     console.log "Saved! #{editor.getPath()}"
 
+
 # folds Python code when a new window is opened
 foldCode = (editor) ->
-  #editor.foldAllAtIndentLevel(1)
   editor.foldAllAtIndentLevel(0)
 
 atom.workspace.observeTextEditors (editor) ->
-  #editor.foldAllAtIndentLevel(0) if editor?.getGrammar().name is 'Python'
   if editor.getGrammar().name is 'Python'
     foldCode(editor)
